@@ -1,7 +1,7 @@
 // common function to get the sum of expenses
 
 function sumOfExpenses(){
-    const foodInput=document.getElementById('food-input');
+    const foodInput = document.getElementById('food-input');
     const foodTotal = parseFloat(foodInput.value) ;
 
     const rentInput=document.getElementById('rent-input');
@@ -44,6 +44,7 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
 
 
 document.getElementById('save-btn').addEventListener('click',function(){
+    
     const income=document.getElementById('income-input');
     const incomeTotal = income.value;
     
@@ -53,11 +54,21 @@ document.getElementById('save-btn').addEventListener('click',function(){
     // calling persentage function
     const savingAmount = percentage(savePercentage,incomeTotal);
 
+    const balance = document.getElementById('balance');
+    // calling sum function
+    const totalCost = sumOfExpenses();
+    const currentBalance= incomeTotal-totalCost;
+    console.log(currentBalance);
+
+    // error handling
+    if(savingAmount>currentBalance || savingAmount<0) {
+       return  alert("You dont have enough money.Plz enter a valid number")
+    }
+
     const saveAmount = document.getElementById('saving-amount');
     saveAmount.innerText=savingAmount;
 
-    // calling sum function
-    const totalCost = sumOfExpenses();
+    
 
     const remainingBalance = incomeTotal -totalCost -savingAmount;
 
