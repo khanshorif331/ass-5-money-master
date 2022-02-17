@@ -1,30 +1,6 @@
+// common function to get the sum of expenses
 
-// function incomeInput(num){
-//     const income=document.getElementById('income-input');
-//     const incomeValue = income.value;
-//     income.value = incomeValue;
-//     return incomeValue;
-// }
-// const result = incomeInput(30)
-
-// console.log(result);
-
-
-
-// a function to get the persentage amount
-function percentage(percent, incomeTotal) {
-    return ((percent/ 100) * incomeTotal).toFixed(2)
-}
-
-
-
-// calculate button event handler
-
-document.getElementById('calculate-btn').addEventListener('click',function(){
-    // taking all the input values
-    const income=document.getElementById('income-input');
-    const incomeTotal = income.value;
-
+function sumOfExpenses(){
     const foodInput=document.getElementById('food-input');
     const foodTotal = parseFloat(foodInput.value) ;
 
@@ -35,18 +11,36 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
     const clothesTotal = parseFloat(clothesInput.value);
 
     const sum = foodTotal+rentTotal+clothesTotal;
+    return sum;
+}
+
+
+// a function to get the persentage amount
+function percentage(percent, incomeTotal) {
+    return ((percent/ 100) * incomeTotal).toFixed(2)
+}
+
+
+
+// event handler on calculate button
+
+document.getElementById('calculate-btn').addEventListener('click',function(){
+    const income=document.getElementById('income-input');
+    const incomeTotal = income.value;
+    // calling the function
+    const totalCost = sumOfExpenses();
 
     const totalExpense = document.getElementById('total-expenses');
-    totalExpense.innerText= sum;
+    totalExpense.innerText= totalCost;
 
     const balance = document.getElementById('balance');
-    const currentBalance= incomeTotal-sum;
+    const currentBalance= incomeTotal-totalCost;
     balance.innerText = currentBalance;
 })
 
 
 
-// save button event handler
+// event handler on save button 
 
 
 document.getElementById('save-btn').addEventListener('click',function(){
@@ -62,5 +56,11 @@ document.getElementById('save-btn').addEventListener('click',function(){
     const saveAmount = document.getElementById('saving-amount');
     saveAmount.innerText=savingAmount;
 
-    console.log(savingAmount);
+    // calling sum function
+    const totalCost = sumOfExpenses();
+
+    const remainingBalance = incomeTotal -totalCost -savingAmount;
+
+    const remainingBalanceText=document.getElementById('remaining-balance');
+    remainingBalanceText.innerText=remainingBalance;
 })
