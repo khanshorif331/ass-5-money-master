@@ -19,7 +19,7 @@
             <!-- Calculation Section -->
             <section class="text-center w-100 fs-5 me-0">
                 <div class="income"><h2>Income</h2>
-                    <div>Income:<input id="income-input" type="number"></div>
+                    <div>Income:<input id="income-input" type="number" required></div>
                 </div>
                 <div><h3>Expenses</h3>
                     <div>Food:<input id="food-input" type="number"></div>
@@ -27,7 +27,7 @@
                     <div>Clothes:<input id="clothes-input" type="number"></div>
                     <button id="calculate-btn" class="btn btn-primary">Calculate</button>
                     <h3>Total Expenses:<span id="total-expenses"></span> </h3>
-                    <h3>Balance:</h3>
+                    <h3>Balance:<span id="balance"></span></h3>
                 </div>
                 <div>
                     <div>Save: <input id="save-input" type="number">% <button id="save-btn" class="btn btn-primary">Save</button>
