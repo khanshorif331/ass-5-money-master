@@ -34,7 +34,7 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
     totalExpense.innerText= totalCost;
 
     const balance = document.getElementById('balance');
-    const currentBalance= incomeTotal-totalCost;
+    const currentBalance= (incomeTotal-totalCost).toFixed(2);
     balance.innerText = currentBalance;
 })
 
@@ -67,8 +67,6 @@ document.getElementById('save-btn').addEventListener('click',function(){
 
     const saveAmount = document.getElementById('saving-amount');
     saveAmount.innerText=savingAmount;
-
-    
 
     const remainingBalance = incomeTotal -totalCost -savingAmount;
 
