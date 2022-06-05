@@ -10,6 +10,8 @@ function sumOfExpenses(){
     const clothesInput=document.getElementById('clothes-input');
     const clothesTotal = parseFloat(clothesInput.value);
 
+   
+
     const sum = foodTotal+rentTotal+clothesTotal;
     return sum;
 }
